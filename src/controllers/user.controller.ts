@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { createUserService } from "../services/user.service.js";
+import { createUserService, getAllUsers } from "../services/user.service.js";
 import { User } from "../models/users.model.js";
 
 
@@ -26,7 +26,7 @@ export const CreateUserController= async ( req:Request,res:Response )=>{
 export const GetUserController= async ( req:Request,res:Response )=>{
 
     try{
-        const users = await User.find()
+        const users = await getAllUsers();
         res.send(users)
 
 

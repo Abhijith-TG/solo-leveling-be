@@ -20,3 +20,12 @@ export const createUserService = async (
     throw new Error(error || "Failed to create user !");
   }
 };
+
+export const getAllUsers = async ()=>{
+  try{
+    const users = await User.find()
+    return users;
+  }catch(e:any){
+    throw new Error(e) 
+  }
+}
